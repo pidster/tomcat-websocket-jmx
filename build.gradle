@@ -47,11 +47,15 @@ task wrapper(type: Wrapper, description: "Create a Gradle self-download wrapper"
 project(":tomcat-websocket-jmx-lib") {
     dependencies {
         // project dependencies
+		compile "org.apache.tomcat:tomcat-servlet-api:$tomcatVersion"
+		compile "org.apache.tomcat:catalina:$tomcatVersion"
     }
 }
 
 project(":tomcat-websocket-jmx-webapp") {
+	apply plugin: 'war'
     dependencies {
         // project dependencies
+		compile project(":tomcat-websocket-jmx-lib")
     }
 }

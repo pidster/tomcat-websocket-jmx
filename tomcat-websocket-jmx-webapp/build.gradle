@@ -3,10 +3,10 @@
 project.ext.title = 'Project webapp'
 project.ext.description = 'A description stub for Project webapp'
 project.ext.version = '0.1-SNAPSHOT'
-project.ext.packageName = 'A_PACKAGE_NAME'
+project.ext.packageName = 'tomcat-websocket-jmx'
 
-jar {
-        archiveName = "${packageName}-${version}.jar"
+war {
+        archiveName = "${packageName}##${version}.war"
         manifest {
                 attributes (
                         'Implementation-Title': "$title",
