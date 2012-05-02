@@ -1,0 +1,57 @@
+// This is a multi-project
+
+configurations.all {
+}
+
+allprojects {
+    defaultTasks ['assemble']
+}
+
+subprojects {
+
+    // apply plugin: 'eclipse'         // adds support for eclipse project generation
+    // apply plugin: 'idea'            // adds support for IDEA project generation
+    apply plugin: 'java'            // adds support for java
+
+    sourceCompatibility = 1.6
+    targetCompatibility = 1.6
+
+    repositories {
+        // mavenRepo name: 'Spring Release', url: 'http://repo.springsource.org/release'
+        // mavenRepo name: 'Gemstone', url: 'http://dist.gemstone.com/maven/release'
+        // mavenRepo name: 'Java.net', url: 'http://download.java.net/maven/2'
+        mavenCentral()
+    }
+
+    dependencies {
+        // testCompile "junit:junit:$junitVersion"
+    }
+
+    jar {
+        manifest.attributes provider: 'gradle'
+    }
+}
+
+// --------------------------------------------------------------------
+// global task definitions
+
+task wrapper(type: Wrapper, description: "Create a Gradle self-download wrapper") {
+    group = 'Project Setup'
+    gradleVersion = "$gradleVersion"
+}
+
+// --------------------------------------------------------------------
+// Sub projects
+
+
+project(":tomcat-websocket-jmx-lib") {
+    dependencies {
+        // project dependencies
+    }
+}
+
+project(":tomcat-websocket-jmx-webapp") {
+    dependencies {
+        // project dependencies
+    }
+}
