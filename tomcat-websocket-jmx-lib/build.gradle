@@ -3,7 +3,7 @@
 project.ext.title = 'Tomcat WebSocket + JMX Demo lib'
 project.ext.description = 'A description stub for Project lib'
 project.ext.version = '0.1-SNAPSHOT'
-project.ext.packageName = 'org.pidster.tomcat.websockets.jmx'
+project.ext.packageName = 'demo-websocket-jmx'
 
 jar {
         archiveName = "${packageName}-${version}.jar"
