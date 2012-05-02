@@ -1,9 +1,9 @@
 // This is a sub-project
 
-project.ext.title = 'Project lib'
+project.ext.title = 'Tomcat WebSocket + JMX Demo lib'
 project.ext.description = 'A description stub for Project lib'
 project.ext.version = '0.1-SNAPSHOT'
-project.ext.packageName = 'A_PACKAGE_NAME'
+project.ext.packageName = 'org.pidster.tomcat.websockets.jmx'
 
 jar {
         archiveName = "${packageName}-${version}.jar"
