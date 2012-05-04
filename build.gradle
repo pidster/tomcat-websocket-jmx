@@ -13,9 +13,6 @@ subprojects {
     // apply plugin: 'idea'            // adds support for IDEA project generation
     apply plugin: 'java'            // adds support for java
 
-    sourceCompatibility = 1.6
-    targetCompatibility = 1.6
-
     repositories {
         // mavenRepo name: 'Spring Release', url: 'http://repo.springsource.org/release'
         // mavenRepo name: 'Gemstone', url: 'http://dist.gemstone.com/maven/release'
@@ -47,15 +44,30 @@ task wrapper(type: Wrapper, description: "Create a Gradle self-download wrapper"
 project(":tomcat-websocket-jmx-lib") {
     dependencies {
         // project dependencies
+		compile "commons-logging:commons-logging:$loggingVersion"
+		compile "org.apache.tomcat:tomcat-api:$tomcatVersion"
+		compile "org.apache.tomcat:tomcat-annotations-api:$tomcatVersion"
+		compile "org.apache.tomcat:tomcat-catalina:$tomcatVersion"
+		compile "org.apache.tomcat:tomcat-coyote:$tomcatVersion"
+		compile "org.apache.tomcat:tomcat-juli:$tomcatVersion"
 		compile "org.apache.tomcat:tomcat-servlet-api:$tomcatVersion"
-		compile "org.apache.tomcat:catalina:$tomcatVersion"
+		compile "org.apache.tomcat:tomcat-util:$tomcatVersion"
     }
 }
 
 project(":tomcat-websocket-jmx-webapp") {
 	apply plugin: 'war'
+
     dependencies {
         // project dependencies
+		providedRuntime "org.apache.tomcat:tomcat-api:$tomcatVersion"
+		providedRuntime "org.apache.tomcat:tomcat-annotations-api:$tomcatVersion"
+		providedRuntime "org.apache.tomcat:tomcat-catalina:$tomcatVersion"
+		providedRuntime "org.apache.tomcat:tomcat-coyote:$tomcatVersion"
+		providedRuntime "org.apache.tomcat:tomcat-juli:$tomcatVersion"
+		providedRuntime "org.apache.tomcat:tomcat-servlet-api:$tomcatVersion"
+		providedRuntime "org.apache.tomcat:tomcat-util:$tomcatVersion"
+		compile "commons-logging:commons-logging:$loggingVersion"
 		compile project(":tomcat-websocket-jmx-lib")
     }
 }
